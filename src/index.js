@@ -1,15 +1,12 @@
 module.exports = function check(str, bracketsConfig) {
+  const brackets = bracketsConfig.map((el) => el.join(""));
 
-  const brackets = brackets.map(el => el.join(''));
-
-  for (let i = 0; i < brackets.length; i++){
+  for (let i = 0; i < brackets.length; i++) {
     if (str.includes(brackets[i])) {
-      str = str.replace(brackets[i], '');
-      i--;
+      str = str.replace(brackets[i], "");
+      i = -1;
     }
-  };
+  }
 
-   return  str?false:true
-}
-
-
+  return str ? false : true;
+};
